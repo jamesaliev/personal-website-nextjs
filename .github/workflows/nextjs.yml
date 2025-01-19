@@ -51,8 +51,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
+          cache-dependency-path: my-app/package-lock.json
           node-version: "20"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: 'npm'
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
