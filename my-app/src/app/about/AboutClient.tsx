@@ -82,7 +82,7 @@ export default function About() {
         </section>
         
         <a
-          href="/JamesAliev_Resume.pdf"
+          href="./JamesAliev_Resume.pdf"
           download="James_Aliev_Resume.pdf"
           className={styles.button}
         >

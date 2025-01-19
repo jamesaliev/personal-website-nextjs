@@ -10,10 +10,10 @@ import { useRef, useEffect, useState } from "react";
 export default function projects() {
   // Images for multiple projects
   const projectImages = [
-    ["/echobeat1.png", "/echobeat2.png", "/echobeat3.png"], // Images for Echobeat
-    ["/spaceinvaders1.png", "/spaceinvaders2.png", "/spaceinvaders3.png"], // Images for Space Invaders
-    ["/pcb1.png", "/pcb2.png", "/pcb3.png"], // Images for PCB Project
-    ["/aa1.png", "/aa2.png", "/aa3.png", "/aa4.png", "/aa5.png"], // Images for Alien Attack
+    ["./echobeat1.png", "./echobeat2.png", "./echobeat3.png"], // Images for Echobeat
+    ["./spaceinvaders1.png", "./spaceinvaders2.png", "./spaceinvaders3.png"], // Images for Space Invaders
+    ["./pcb1.png", "./pcb2.png", "./pcb3.png"], // Images for PCB Project
+    ["./aa1.png", "./aa2.png", "./aa3.png", "./aa4.png", "./aa5.png"], // Images for Alien Attack
   ];
 
   const [currentImageIndices, setCurrentImageIndices] = useState<number[]>(
