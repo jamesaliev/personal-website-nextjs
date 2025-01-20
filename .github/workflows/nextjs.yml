@@ -38,10 +38,7 @@ jobs:
         working-directory: ./my-app
         run: npm run build
 
-      # Step 6: Export static files
-      - name: Export static files
-        working-directory: ./my-app
-        run: npm run export
+      # Step 6: removed the export
 
       # Step 7: Add .nojekyll file
       - name: Add .nojekyll file
