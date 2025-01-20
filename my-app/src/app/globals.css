@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url('/personal-website-nextjs/JetBrainsMono-Regular.woff2') format('woff2'),
-       url('/personal-website-nextjs/JetBrainsMono-Regular.woff') format('woff');
+  src: url('/personal-website-nextjs/JetBrainsMono-ExtraBold.ttf') format('woff2'),
+       url('/personal-website-nextjs/JetBrainsMono-ExtraBold.ttf') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap; /* Ensures fallback text is shown until the font is loaded */
@@ -9,8 +9,8 @@
 
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url('/personal-website-nextjs/JetBrainsMono-Bold.woff2') format('woff2'),
-       url('/personal-website-nextjs/JetBrainsMono-Bold.woff') format('woff');
+  src: url('/personal-website-nextjs/JetBrainsMono-Bold.ttf') format('woff2'),
+       url('/personal-website-nextjs/JetBrainsMono-Bold.ttf') format('woff');
   font-weight: 700;
   font-style: normal;
 }
