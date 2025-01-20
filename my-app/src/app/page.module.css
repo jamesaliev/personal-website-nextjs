@@ -35,7 +35,7 @@
 
 .logo {
   max-height: 40px;
-  cursor: url("/hand-pointer.svg"), auto; /* Custom cursor */
+  cursor: url("/personal-website-nextjs/hand-pointer.svg"), auto; /* Custom cursor */
 }
 
 .navList {
@@ -56,7 +56,7 @@
   font-weight: 500;
   font-size: 0.9rem;
   transition: color 0.3s ease;
-  cursor: url("/hand-pointer.svg"), auto; /* Custom cursor */
+  cursor: url("/personal-website-nextjs/hand-pointer.svg"), auto; /* Custom cursor */
 }
 
 .navLink:hover {
