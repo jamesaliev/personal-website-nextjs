@@ -73,7 +73,7 @@ export default function Contact() {
 
         {/* Foreground Content (Email Form) */}
         <div className={styles.formContainer}>
-          <h2 className={styles.formHeader}>let's talk</h2>
+          <h2 className={styles.formHeader}>let&apos;s talk</h2>
           <form className={styles.form}>
             <input type="email" id="email" name="email" placeholder="email" required />
             <textarea id="message" name="message" rows={4} placeholder="message" required></textarea>

@@ -7,7 +7,7 @@ import jamesAlievLogo from "../../assets/images/james_aliev_logo.svg";
 import Spline from "@splinetool/react-spline";
 import { useRef, useEffect, useState } from "react";
 
-export default function projects() {
+export default function Projects() {
   // Images for multiple projects
   const projectImages = [
     ["./echobeat1.png", "./echobeat2.png", "./echobeat3.png"], // Images for Echobeat
