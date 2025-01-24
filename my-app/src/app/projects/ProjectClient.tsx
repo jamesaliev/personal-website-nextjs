@@ -10,10 +10,11 @@ import { useRef, useEffect, useState } from "react";
 export default function Projects() {
   // Images for multiple projects
   const projectImages = [
-    ["./echobeat1.png", "./echobeat2.png", "./echobeat3.png"], // Images for Echobeat
-    ["./spaceinvaders1.png", "./spaceinvaders2.png", "./spaceinvaders3.png"], // Images for Space Invaders
-    ["./pcb1.png", "./pcb2.png", "./pcb3.png"], // Images for PCB Project
-    ["./aa1.png", "./aa2.png", "./aa3.png", "./aa4.png", "./aa5.png"], // Images for Alien Attack
+    ["/doomengine1.png", "/doomengine2.png", "/doomengine3.png", "/doomengine4.png", "/doomengine5.png"], // Images for Doom Engine
+    ["/echobeat1.png", "/echobeat2.png", "/echobeat3.png"], // Images for Echobeat
+    ["/spaceinvaders1.png", "/spaceinvaders2.png", "/spaceinvaders3.png"], // Images for Space Invaders
+    ["/pcb1.png", "/pcb2.png", "/pcb3.png"], // Images for PCB Project
+    ["/aa1.png", "/aa2.png", "/aa3.png", "/aa4.png", "/aa5.png"], // Images for Alien Attack
   ];
 
   const [currentImageIndices, setCurrentImageIndices] = useState<number[]>(
@@ -115,48 +116,60 @@ export default function Projects() {
         {/* Project Sections */}
         {[
           {
+            title: "doom engine w/ interaction",
+            tech: "c, openGL",
+            date: "12/24 - 01/25",
+            details: [
+              "Developed a custom Doom Engine clone with advanced physics and rendering capabilities.",
+              "Implemented interactive environments using OpenGL for real-time graphics and simulations.",
+              "Optimized engine performance for seamless gameplay across multiple devices.",
+              "Designed a modular architecture to support custom map creation and player interactions.",
+            ],
+            imageIndex: 0,
+          },
+          {
             title: "echobeat",
             tech: "angular, typescript, node.js, nginx, pm2, google compute engine",
             date: "08/24 - present",
             details: [
-              "visualize and analyze your listening habits with detailed spotify insights.",
-              "create personalized playlists based on your top artists, genres, and tracks.",
-              "access real-time music statistics and trends for a unique listening experience.",
+              "Visualize and analyze your listening habits with detailed Spotify insights.",
+              "Create personalized playlists based on your top artists, genres, and tracks.",
+              "Access real-time music statistics and trends for a unique listening experience.",
             ],
-            imageIndex: 0,
+            imageIndex: 1,
           },
           {
             title: "space invaders",
             tech: "c, nios2 (assembly), de1-soc fpga, vga, ps/2, quartus",
             date: "03/24 - 04/24",
             details: [
-              "built a hardware-accelerated space invaders game with responsive controls.",
-              "utilized fpga programming to handle game logic and vga rendering.",
-              "optimized gameplay mechanics for low-latency and seamless performance.",
+              "Built a hardware-accelerated Space Invaders game with responsive controls.",
+              "Utilized FPGA programming to handle game logic and VGA rendering.",
+              "Optimized gameplay mechanics for low-latency and seamless performance.",
             ],
-            imageIndex: 1,
+            imageIndex: 2,
           },
           {
             title: "macro keyboard (pcb)",
             tech: "kicad, ATMEGA8U2-MU, osh park, soldering",
             date: "11/23 - 12/23",
             details: [
-              "designed a custom pcb featuring a microcontroller, passive components, and switches, ensuring robust connectivity and efficient layout.",
-              "implemented precise routing of signal traces and power lines using advanced design techniques for optimized circuit performance.",
-              "integrated a sleek aesthetic design with a vibrant purple solder mask and 3d modeling for a professional-grade finish.",
+              "Designed a custom PCB featuring a microcontroller, passive components, and switches, ensuring robust connectivity and efficient layout.",
+              "Implemented precise routing of signal traces and power lines using advanced design techniques for optimized circuit performance.",
+              "Integrated a sleek aesthetic design with a vibrant purple solder mask and 3D modeling for a professional-grade finish.",
             ],
-            imageIndex: 2,
+            imageIndex: 3,
           },
           {
             title: "alien attack",
             tech: "python, pygame",
             date: "05/21 - 06/21",
             details: [
-              "implemented dynamic gameplay mechanics with increasing difficulty to challenge players as they face waves of alien invaders.",
-              "developed a customizable weapon and power-up system to enhance gameplay and player strategy.",
-              "designed and integrated vibrant pixel-art visuals and an arcade-style soundtrack for an engaging retro aesthetic.",
+              "Implemented dynamic gameplay mechanics with increasing difficulty to challenge players as they face waves of alien invaders.",
+              "Developed a customizable weapon and power-up system to enhance gameplay and player strategy.",
+              "Designed and integrated vibrant pixel-art visuals and an arcade-style soundtrack for an engaging retro aesthetic.",
             ],
-            imageIndex: 3,
+            imageIndex: 4,
           },
         ].map((project, index) => (
           <section
