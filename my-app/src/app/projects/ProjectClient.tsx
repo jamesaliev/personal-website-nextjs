@@ -107,7 +107,7 @@ export default function Projects() {
       <main className={styles.main}>
         <div className={styles.splineBackground}>
           <Spline
-            scene="https://prod.spline.design/Duxw6N-r9gxyxlVc/scene.splinecode"
+            scene="https://prod.spline.design/voL5k8OLXM-hqvyf/scene.splinecode"
             onLoad={handleSplineLoad} // Triggered when the Spline scene is loaded
           />
         </div>
