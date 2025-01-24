@@ -13,7 +13,7 @@ export default function Home() {
     // Simulate content loading
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500); // Adjust the time as needed
+    }, 500); // Adjust the time as needed
 
     return () => clearTimeout(timer);
   }, []);
