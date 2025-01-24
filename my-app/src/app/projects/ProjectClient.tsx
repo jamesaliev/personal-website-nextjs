@@ -10,11 +10,12 @@ import { useRef, useEffect, useState } from "react";
 export default function Projects() {
   // Images for multiple projects
   const projectImages = [
+    ["/raycaster1.png", "/raycaster2.png", "/raycaster3.png"], // Images for Raycasters
     ["/doomengine1.png", "/doomengine2.png", "/doomengine3.png", "/doomengine4.png", "/doomengine5.png"], // Images for Doom Engine
     ["/echobeat1.png", "/echobeat2.png", "/echobeat3.png"], // Images for Echobeat
     ["/spaceinvaders1.png", "/spaceinvaders2.png", "/spaceinvaders3.png"], // Images for Space Invaders
     ["/pcb1.png", "/pcb2.png", "/pcb3.png"], // Images for PCB Project
-    ["/aa1.png", "/aa2.png", "/aa3.png", "/aa4.png", "/aa5.png"], // Images for Alien Attack
+    ["/aa1.png", "/aa2.png", "/aa3.png", "/aa4.png", "/aa5.png"] // Images for Alien Attack
   ];
 
   const [currentImageIndices, setCurrentImageIndices] = useState<number[]>(
@@ -116,6 +117,17 @@ export default function Projects() {
         {/* Project Sections */}
         {[
           {
+            title: "raycaster engine",
+            tech: "c, openGL, raycasting",
+            date: "12/24 - 01/25",
+            details: [
+              "Implemented a 3D raycasting engine inspired by classic games like Wolfenstein 3D.",
+              "Utilized SDL2 for rendering and input handling, creating an immersive retro visual experience.",
+              "Optimized the raycasting algorithm for efficient performance and accurate environment mapping.",
+            ],
+            imageIndex: 0,
+          },
+          {
             title: "doom engine w/ interaction",
             tech: "c, openGL",
             date: "12/24 - 01/25",
@@ -123,9 +135,8 @@ export default function Projects() {
               "Developed a custom Doom Engine clone with advanced physics and rendering capabilities.",
               "Implemented interactive environments using OpenGL for real-time graphics and simulations.",
               "Optimized engine performance for seamless gameplay across multiple devices.",
-              "Designed a modular architecture to support custom map creation and player interactions.",
             ],
-            imageIndex: 0,
+            imageIndex: 1,
           },
           {
             title: "echobeat",
@@ -136,7 +147,7 @@ export default function Projects() {
               "Create personalized playlists based on your top artists, genres, and tracks.",
               "Access real-time music statistics and trends for a unique listening experience.",
             ],
-            imageIndex: 1,
+            imageIndex: 2,
           },
           {
             title: "space invaders",
@@ -147,7 +158,7 @@ export default function Projects() {
               "Utilized FPGA programming to handle game logic and VGA rendering.",
               "Optimized gameplay mechanics for low-latency and seamless performance.",
             ],
-            imageIndex: 2,
+            imageIndex: 3,
           },
           {
             title: "macro keyboard (pcb)",
@@ -158,7 +169,7 @@ export default function Projects() {
               "Implemented precise routing of signal traces and power lines using advanced design techniques for optimized circuit performance.",
               "Integrated a sleek aesthetic design with a vibrant purple solder mask and 3D modeling for a professional-grade finish.",
             ],
-            imageIndex: 3,
+            imageIndex: 4,
           },
           {
             title: "alien attack",
@@ -169,7 +180,7 @@ export default function Projects() {
               "Developed a customizable weapon and power-up system to enhance gameplay and player strategy.",
               "Designed and integrated vibrant pixel-art visuals and an arcade-style soundtrack for an engaging retro aesthetic.",
             ],
-            imageIndex: 4,
+            imageIndex: 5,
           },
         ].map((project, index) => (
           <section
