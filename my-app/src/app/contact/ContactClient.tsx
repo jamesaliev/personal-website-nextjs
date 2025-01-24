@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "./contact.module.css";
 import jamesAlievLogo from "../../assets/images/james_aliev_logo.svg";
 import Spline from "@splinetool/react-spline";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,6 +19,29 @@ export default function Contact() {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  
+    emailjs
+      .sendForm(
+        'service_0synl6k',
+        'template_fp8d1a3',
+        e.target as HTMLFormElement,
+        'kwiMz6Hd_Sb7eARhB' 
+      )
+      .then(
+        (result) => {
+          console.log('Email sent:', result.text);
+          alert('Message sent successfully!');
+        },
+        (error) => {
+          console.error('Error:', error.text);
+          alert('Failed to send message.');
+        }
+      );
+  };
+
+  
   return (
     <div className={styles.page}>
       {isLoading && (
@@ -74,7 +98,7 @@ export default function Contact() {
         {/* Foreground Content (Email Form) */}
         <div className={styles.formContainer}>
           <h2 className={styles.formHeader}>let&apos;s talk</h2>
-          <form className={styles.form}>
+          <form className={styles.form}  onSubmit={handleSubmit}>
             <input type="email" id="email" name="email" placeholder="email" required />
             <textarea id="message" name="message" rows={4} placeholder="message" required></textarea>
             <button type="submit">send</button>
