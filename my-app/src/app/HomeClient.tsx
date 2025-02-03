@@ -6,25 +6,54 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import jamesAlievLogo from "../assets/images/james_aliev_logo.svg";
 
-const useClampedScroll = (minDelta = -40, maxDelta = 40) => {
+const useClampedScroll = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const scrollVelocity = useRef(0);
+  const isTrackpad = useRef(false);
 
   useEffect(() => {
     const handleWheel = (event: WheelEvent) => {
       event.preventDefault();
 
       if (scrollContainerRef.current) {
-        const clampedDeltaY = Math.max(minDelta, Math.min(maxDelta, event.deltaY));
+        // Detect Trackpad vs Mouse
+        if (Math.abs(event.deltaY) < 50) {
+          isTrackpad.current = true; // Trackpads have small deltaY values
+        } else {
+          isTrackpad.current = false;
+        }
+
+        let clampedDeltaY;
+        if (isTrackpad.current) {
+          clampedDeltaY = event.deltaY * 0.3; // Reduce trackpad scroll speed
+        } else {
+          clampedDeltaY = Math.max(-50, Math.min(50, event.deltaY)); // Clamp mouse wheel speed
+        }
+
+        scrollVelocity.current += clampedDeltaY;
+      }
+    };
+
+    const smoothScroll = () => {
+      if (scrollContainerRef.current) {
         scrollContainerRef.current.scrollBy({
-          top: clampedDeltaY,
+          top: scrollVelocity.current,
           behavior: "smooth",
         });
+
+        scrollVelocity.current *= 0.8; // Apply friction to slow it down
+        if (Math.abs(scrollVelocity.current) > 0.5) {
+          requestAnimationFrame(smoothScroll);
+        } else {
+          scrollVelocity.current = 0;
+        }
       }
     };
 
     const container = scrollContainerRef.current;
     if (container) {
       container.addEventListener("wheel", handleWheel, { passive: false });
+      requestAnimationFrame(smoothScroll);
     }
 
     return () => {
@@ -32,14 +61,14 @@ const useClampedScroll = (minDelta = -40, maxDelta = 40) => {
         container.removeEventListener("wheel", handleWheel);
       }
     };
-  }, [minDelta, maxDelta]);
+  }, []);
 
   return scrollContainerRef;
 };
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const scrollRef = useClampedScroll(-40, 40);
+  const scrollRef = useClampedScroll();
 
   useEffect(() => {
     const timer = setTimeout(() => {

@@ -199,16 +199,18 @@ export default function Projects() {
                   </p>
                 ))}
               </div>
-                <div className={styles.projectImageContainer}>
+              <div className={styles.projectImageContainer}>
+              <div className={styles.projectImageContainer}>
                 <Image
                   src={projectImages[project.imageIndex][currentImageIndices[index]]}
                   alt={`${project.title} project screenshot`}
                   className={styles.projectImage}
+                  layout="fill"
+                  objectFit="cover" // Adjust for aspect ratio control
                   onClick={() => handleImageClick(index)}
-                  width={500} // Adjust the width as needed
-                  height={300} // Adjust the height as needed
                 />
-                </div>
+              </div>
+              </div>
             </div>
           </section>
         ))}
