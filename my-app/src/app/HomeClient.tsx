@@ -9,34 +9,38 @@ import jamesAlievLogo from "../assets/images/james_aliev_logo.svg";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const scrollVelocity = useRef(0);
-  const lastScrollY = useRef(0);
+  const currentScroll = useRef(0);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Prevent default scrolling
+    // Disable native scrolling
     document.body.style.overflow = "hidden";
 
     const handleWheel = (event: WheelEvent) => {
-      event.preventDefault(); // Block default page scroll
+      event.preventDefault(); // Prevent default scrolling behavior
 
       // Adjust scroll speed (reduce sensitivity)
-      const scrollSpeed = 0.2;
-      scrollVelocity.current += event.deltaY * scrollSpeed;
+      const scrollFactor = 0.15; // Reduce fast scrolling
+      scrollVelocity.current += event.deltaY * scrollFactor;
     };
 
     const smoothScroll = () => {
-      lastScrollY.current += scrollVelocity.current;
-      scrollVelocity.current *= 0.9; // Apply damping
+      if (contentRef.current) {
+        currentScroll.current += scrollVelocity.current;
+        scrollVelocity.current *= 0.9; // Apply damping effect
 
-      window.scrollTo({
-        top: lastScrollY.current,
-        behavior: "smooth",
-      });
+        // Clamp the scroll position to prevent excessive movement
+        currentScroll.current = Math.max(-1000, Math.min(1000, currentScroll.current));
+
+        // Apply transformation instead of native scroll
+        contentRef.current.style.transform = `translateY(${-currentScroll.current}px)`;
+      }
 
       requestAnimationFrame(smoothScroll);
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
-    smoothScroll(); // Start smooth scrolling loop
+    smoothScroll(); // Start the smooth scroll animation
 
     return () => {
       window.removeEventListener("wheel", handleWheel);
@@ -85,8 +89,8 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* Main Content with Clamped Scroll */}
-      <main className={styles.main}>
+      {/* Main Content with Manual Scrolling */}
+      <main ref={contentRef} className={styles.main}>
         <div className={styles.splineContainer}>
           <Spline 
             scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode"
