@@ -14,7 +14,7 @@ const useClampedScroll = (minDelta = -40, maxDelta = 40) => {
       event.preventDefault();
 
       if (scrollContainerRef.current) {
-        let clampedDeltaY = Math.max(minDelta, Math.min(maxDelta, event.deltaY));
+        const clampedDeltaY = Math.max(minDelta, Math.min(maxDelta, event.deltaY));
         scrollContainerRef.current.scrollBy({
           top: clampedDeltaY,
           behavior: "smooth",

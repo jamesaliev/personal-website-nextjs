@@ -200,7 +200,7 @@ export default function Projects() {
                 ))}
               </div>
               <div className={styles.projectImageContainer}>
-                <img
+                <Image
                   src={projectImages[project.imageIndex][currentImageIndices[index]]}
                   alt={`${project.title} project screenshot`}
                   className={styles.projectImage}
