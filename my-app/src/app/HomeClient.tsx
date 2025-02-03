@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 import jamesAlievLogo from "../assets/images/james_aliev_logo.svg";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading] = useState(true);
   const splineContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Home() {
       if (isInsideSpline) {
         event.preventDefault(); // Block default spline scroll
 
-        let adjustedDeltaY = event.deltaY * 0.2; // Slow down trackpad scroll
+        const adjustedDeltaY = event.deltaY * 0.2; // Slow down trackpad scroll
 
         splineContainerRef.current.scrollBy({
           top: adjustedDeltaY,
