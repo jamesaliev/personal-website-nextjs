@@ -200,16 +200,15 @@ export default function Projects() {
                 ))}
               </div>
               <div className={styles.projectImageContainer}>
-              <div className={styles.projectImageContainer}>
-                <Image
-                  src={projectImages[project.imageIndex][currentImageIndices[index]]}
-                  alt={`${project.title} project screenshot`}
-                  className={styles.projectImage}
-                  layout="fill"
-                  objectFit="cover" // Adjust for aspect ratio control
-                  onClick={() => handleImageClick(index)}
-                />
-              </div>
+              <Image
+                src={projectImages[project.imageIndex][currentImageIndices[index]] || "/fallback.jpg"}
+                alt={`${project.title} project screenshot`}
+                className={styles.projectImage}
+                width={800}
+                height={600}
+                onClick={() => handleImageClick(index)}
+                unoptimized
+              />
               </div>
             </div>
           </section>

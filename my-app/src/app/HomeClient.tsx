@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Spline from "@splinetool/react-spline";
@@ -6,76 +5,35 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import jamesAlievLogo from "../assets/images/james_aliev_logo.svg";
 
-const useClampedScroll = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const scrollVelocity = useRef(0);
-  const isTrackpad = useRef(false);
+export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  const splineContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleWheel = (event: WheelEvent) => {
-      event.preventDefault();
+      if (!splineContainerRef.current) return;
 
-      if (scrollContainerRef.current) {
-        // Detect Trackpad vs Mouse
-        if (Math.abs(event.deltaY) < 50) {
-          isTrackpad.current = true; // Trackpads have small deltaY values
-        } else {
-          isTrackpad.current = false;
-        }
+      // Detect if the event is inside Spline container
+      const isInsideSpline =
+        splineContainerRef.current.contains(event.target as Node);
 
-        let clampedDeltaY;
-        if (isTrackpad.current) {
-          clampedDeltaY = event.deltaY * 0.3; // Reduce trackpad scroll speed
-        } else {
-          clampedDeltaY = Math.max(-50, Math.min(50, event.deltaY)); // Clamp mouse wheel speed
-        }
+      if (isInsideSpline) {
+        event.preventDefault(); // Block default spline scroll
 
-        scrollVelocity.current += clampedDeltaY;
-      }
-    };
+        let adjustedDeltaY = event.deltaY * 0.2; // Slow down trackpad scroll
 
-    const smoothScroll = () => {
-      if (scrollContainerRef.current) {
-        scrollContainerRef.current.scrollBy({
-          top: scrollVelocity.current,
+        splineContainerRef.current.scrollBy({
+          top: adjustedDeltaY,
           behavior: "smooth",
         });
-
-        scrollVelocity.current *= 0.8; // Apply friction to slow it down
-        if (Math.abs(scrollVelocity.current) > 0.5) {
-          requestAnimationFrame(smoothScroll);
-        } else {
-          scrollVelocity.current = 0;
-        }
       }
     };
 
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.addEventListener("wheel", handleWheel, { passive: false });
-      requestAnimationFrame(smoothScroll);
-    }
+    window.addEventListener("wheel", handleWheel, { passive: false });
 
     return () => {
-      if (container) {
-        container.removeEventListener("wheel", handleWheel);
-      }
+      window.removeEventListener("wheel", handleWheel);
     };
-  }, []);
-
-  return scrollContainerRef;
-};
-
-export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const scrollRef = useClampedScroll();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -116,8 +74,10 @@ export default function Home() {
       </header>
 
       {/* Main Content with Clamped Scroll */}
-      <main ref={scrollRef} className={styles.main}>
-        <Spline scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode" />
+      <main className={styles.main}>
+        <div ref={splineContainerRef} className={styles.splineContainer}>
+          <Spline scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode" />
+        </div>
       </main>
     </div>
   );
