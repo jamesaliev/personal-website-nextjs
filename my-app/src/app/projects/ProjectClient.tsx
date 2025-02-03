@@ -204,8 +204,7 @@ export default function Projects() {
                 src={projectImages[project.imageIndex][currentImageIndices[index]] || "/fallback.jpg"}
                 alt={`${project.title} project screenshot`}
                 className={styles.projectImage}
-                width={800}
-                height={600}
+                layout="fill"
                 onClick={() => handleImageClick(index)}
                 unoptimized
               />
