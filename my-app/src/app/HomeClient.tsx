@@ -8,49 +8,39 @@ import jamesAlievLogo from "../assets/images/james_aliev_logo.svg";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const splineContainerRef = useRef<HTMLDivElement>(null);
   const scrollVelocity = useRef(0);
-  const isTrackpad = useRef(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
+    // Prevent default scrolling
+    document.body.style.overflow = "hidden";
+
     const handleWheel = (event: WheelEvent) => {
-      if (!splineContainerRef.current) return;
+      event.preventDefault(); // Block default page scroll
 
-      // Detect if the event is inside Spline container
-      const isInsideSpline = splineContainerRef.current.contains(event.target as Node);
+      // Adjust scroll speed (reduce sensitivity)
+      const scrollSpeed = 0.2;
+      scrollVelocity.current += event.deltaY * scrollSpeed;
+    };
 
-      if (isInsideSpline) {
-        event.preventDefault(); // Block default spline scroll
+    const smoothScroll = () => {
+      lastScrollY.current += scrollVelocity.current;
+      scrollVelocity.current *= 0.9; // Apply damping
 
-        // Detect Trackpad vs Mouse: Trackpads have smaller deltaY but more frequent events
-        if (Math.abs(event.deltaY) < 50) {
-          isTrackpad.current = true;
-        } else {
-          isTrackpad.current = false;
-        }
+      window.scrollTo({
+        top: lastScrollY.current,
+        behavior: "smooth",
+      });
 
-        // Apply different clamping based on device type
-        const adjustedDeltaY = isTrackpad.current ? event.deltaY * 0.1 : Math.max(-50, Math.min(50, event.deltaY));
-
-        scrollVelocity.current += adjustedDeltaY;
-
-        requestAnimationFrame(() => {
-          if (splineContainerRef.current) {
-            splineContainerRef.current.scrollBy({
-              top: scrollVelocity.current * 0.8, // Apply damping effect
-              behavior: "smooth",
-            });
-
-            scrollVelocity.current *= 0.9; // Gradually reduce speed to prevent overshooting
-          }
-        });
-      }
+      requestAnimationFrame(smoothScroll);
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
+    smoothScroll(); // Start smooth scrolling loop
 
     return () => {
       window.removeEventListener("wheel", handleWheel);
+      document.body.style.overflow = ""; // Re-enable scrolling when unmounting
     };
   }, []);
 
@@ -97,11 +87,10 @@ export default function Home() {
 
       {/* Main Content with Clamped Scroll */}
       <main className={styles.main}>
-        <div ref={splineContainerRef} className={styles.splineContainer}>
+        <div className={styles.splineContainer}>
           <Spline 
-          scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode"
-          onLoad={handleSplineLoad} // Triggered when the Spline scene is loaded 
-          
+            scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode"
+            onLoad={handleSplineLoad} 
           />
         </div>
       </main>
