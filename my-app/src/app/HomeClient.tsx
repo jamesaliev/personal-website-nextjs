@@ -1,40 +1,21 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import Spline from "@splinetool/react-spline";
-import Link from "next/link";
 import styles from "./page.module.css";
+import Spline from "@splinetool/react-spline";
 import jamesAlievLogo from "../assets/images/james_aliev_logo.svg";
+import Link from "next/link";
 
 export default function Home() {
-  const [isLoading] = useState(true);
-  const splineContainerRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const handleWheel = (event: WheelEvent) => {
-      if (!splineContainerRef.current) return;
+    // Simulate content loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // Adjust the time as needed
 
-      // Detect if the event is inside Spline container
-      const isInsideSpline =
-        splineContainerRef.current.contains(event.target as Node);
-
-      if (isInsideSpline) {
-        event.preventDefault(); // Block default spline scroll
-
-        const adjustedDeltaY = event.deltaY * 0.2; // Slow down trackpad scroll
-
-        splineContainerRef.current.scrollBy({
-          top: adjustedDeltaY,
-          behavior: "smooth",
-        });
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -45,15 +26,15 @@ export default function Home() {
         </div>
       )}
 
-      {/* Header */}
+      {/* Minimalist Header */}
       <header className={styles.header}>
         <nav className={styles.nav}>
           <div className={styles.logoContainer}>
             <Link href="/" legacyBehavior>
               <Image
-                src={jamesAlievLogo}
+                src={jamesAlievLogo} // Correct relative path to the logo
                 alt="James Aliev Logo"
-                width={40}
+                width={40} // Adjust size as needed
                 height={40}
                 priority
                 className={styles.logo}
@@ -62,23 +43,29 @@ export default function Home() {
           </div>
           <ul className={styles.navList}>
             <li className={styles.navItem}>
-              <a href="about" className={styles.navLink}>about</a>
+              <a href="about" className={styles.navLink}>
+                about
+              </a>
             </li>
             <li className={styles.navItem}>
-              <a href="projects" className={styles.navLink}>projects</a>
+              <a href="projects" className={styles.navLink}>
+                projects
+              </a>
             </li>
             <li className={styles.navItem}>
-              <a href="contact" className={styles.navLink}>contact</a>
+              <a href="contact" className={styles.navLink}>
+                contact
+              </a>
             </li>
           </ul>
         </nav>
       </header>
 
-      {/* Main Content with Clamped Scroll */}
+      {/* Main content with Spline */}
       <main className={styles.main}>
-        <div ref={splineContainerRef} className={styles.splineContainer}>
-          <Spline scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode" />
-        </div>
+        <Spline
+          scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode"
+        />
       </main>
     </div>
   );
