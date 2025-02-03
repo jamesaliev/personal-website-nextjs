@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 import jamesAlievLogo from "../assets/images/james_aliev_logo.svg";
 
 export default function Home() {
-  const [isLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const splineContainerRef = useRef<HTMLDivElement>(null);
   const scrollVelocity = useRef(0);
   const isTrackpad = useRef(false);
@@ -54,6 +54,10 @@ export default function Home() {
     };
   }, []);
 
+  const handleSplineLoad = () => {
+    setIsLoading(false); // Hide loading screen when Spline is loaded
+  };
+
   return (
     <div className={styles.page}>
       {isLoading && (
@@ -94,7 +98,11 @@ export default function Home() {
       {/* Main Content with Clamped Scroll */}
       <main className={styles.main}>
         <div ref={splineContainerRef} className={styles.splineContainer}>
-          <Spline scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode" />
+          <Spline 
+          scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode"
+          onLoad={handleSplineLoad} // Triggered when the Spline scene is loaded 
+          
+          />
         </div>
       </main>
     </div>
