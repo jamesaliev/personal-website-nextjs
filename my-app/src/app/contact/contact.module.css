@@ -343,6 +343,7 @@
   width: 100%;
   max-width: 400px;
   font: 1rem 'JetBrains Mono', monospace; /* Custom font */
+  pointer-events: none;
 }
 
 .formHeader {
@@ -361,6 +362,7 @@
   font: 1rem 'JetBrains Mono', monospace; /* Custom font */
   resize: none;
   transition: border-color 0.3s, box-shadow 0.3s;
+  pointer-events: auto;
 }
 
 .formContainer input:focus, .formContainer  textarea:focus {
@@ -381,6 +383,7 @@
   font-weight: bold;
   transition: background-color 0.3s;
   font: 1rem 'JetBrains Mono', monospace; /* Custom font */
+  pointer-events: auto;
 }
 
 .formContainer button:hover {
