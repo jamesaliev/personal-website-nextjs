@@ -334,6 +334,7 @@
   padding: 2rem;
   color: #fff; /* Text color */
   font: 1rem 'JetBrains Mono', monospace; /* Custom font */
+  pointer-events: none;
 }
 
 .form {
@@ -343,7 +344,6 @@
   width: 100%;
   max-width: 400px;
   font: 1rem 'JetBrains Mono', monospace; /* Custom font */
-  pointer-events: none;
 }
 
 .formHeader {
