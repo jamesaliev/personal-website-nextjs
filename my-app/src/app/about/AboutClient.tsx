@@ -4,9 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./about.module.css";
 import jamesAlievLogo from "../../assets/images/james_aliev_logo.svg";
-import qualcommLogo from "/Qualcomm-Logo.svg";
-import alphawaveLogo from "/AlphawaveSEMI-Logo.png";
-import bmoLogo from "/BMO-Logo.png";
 
 export default function About() {
   const [isLoading, setIsLoading] = useState(true);
