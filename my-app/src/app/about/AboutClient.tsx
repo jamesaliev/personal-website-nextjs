@@ -4,6 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./about.module.css";
 import jamesAlievLogo from "../../assets/images/james_aliev_logo.svg";
+import qualcommLogo from "/Qualcomm-Logo.svg";
+import alphawaveLogo from "/AlphawaveSEMI-Logo.png";
+import bmoLogo from "/BMO-Logo.png";
 
 export default function About() {
   const [isLoading, setIsLoading] = useState(true);
@@ -92,7 +95,7 @@ export default function About() {
           <h1 className={styles.heading}>current internship</h1>
           <div className={styles.cardContent}>
             <Image
-              src={require("../../assets/images/Qualcomm-Logo.svg")}
+              src="/Qualcomm-Logo.svg"
               alt="Qualcomm Logo"
               width={180}
               height={60}
@@ -113,7 +116,7 @@ export default function About() {
           <h1 className={styles.heading}>experience</h1>
           <div className={styles.cardContent}>
             <Image
-              src={require("../../assets/images/AlphawaveSEMI-Logo.png")}
+              src="/AlphawaveSEMI-Logo.png"
               alt="Alphawave Semi Logo"
               width={644/2.5}
               height={92/2.5}
@@ -138,7 +141,7 @@ export default function About() {
           <br></br><br></br>
           <div className={styles.cardContent}>
             <Image
-              src={require("../../assets/images/BMO-Logo.svg")}
+              src="/BMO-Logo.svg"
               alt="BMO Logo"
               width={120}
               height={50}
@@ -166,8 +169,8 @@ export default function About() {
           <br></br><br></br>
           <div className={styles.cardContent}>
             <Image
-              src={require("../../assets/images/ExpertGeophysics-Logo.png")}
-              alt="Qualcomm Logo"
+              src="/ExpertGeophysics-Logo.png"
+              alt="Expert Geophysics Limited Logo"
               width={848/5}
               height={256/5}
               className={styles.company_image}
