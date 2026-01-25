@@ -39,6 +39,10 @@
   cursor: url("/hand-pointer.svg"), auto; /* Custom cursor */
 }
 
+.company_image {
+  pointer-events: none;
+}
+
 .navList {
   display: flex;
   list-style: none;
@@ -177,6 +181,10 @@
   gap: 1rem; /* Space between elements */
 }
 
+
+.orangeText {
+  color: #ffa600;
+}
 .cardTitle {
   font-size: 1.5rem;
   font-weight: bold;
