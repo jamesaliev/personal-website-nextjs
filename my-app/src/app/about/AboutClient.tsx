@@ -70,7 +70,7 @@ export default function About() {
         <section className={styles.section}>
           <h1 className={styles.heading}>about me</h1>
           <p className={styles.text}>
-            hi, i&apos;m james aliev, a computer engineering student pursuing a minor in <span className={styles.orangeText}>artifical intelligence</span>, and a certificate in <span className={styles.orangeText}>cybersecurity</span>.
+            hi, i&apos;m james, a <span className={styles.orangeText}>computer engineering</span> student pursuing a minor in <span className={styles.orangeText}>artifical intelligence</span>, and a certificate in <span className={styles.orangeText}>cybersecurity</span>.
           </p>
           <p className={styles.text}>
             my focus is on designing intuitive interfaces and innovative solutions that blend technology and creativity.
