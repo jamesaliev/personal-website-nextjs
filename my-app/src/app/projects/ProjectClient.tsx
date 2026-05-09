@@ -212,6 +212,20 @@ export default function Projects() {
           </section>
         ))}
       </main>
+
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          <div className={styles.footerLinks}>
+            <a href="https://github.com/jamesaliev" target="_blank" rel="noopener noreferrer">
+              github
+            </a>
+            <a href="https://www.linkedin.com/in/jamesaliev" target="_blank" rel="noopener noreferrer">
+              linkedin
+            </a>
+            <a href="contact">contact</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
