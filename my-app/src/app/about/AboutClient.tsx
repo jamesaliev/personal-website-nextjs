@@ -64,7 +64,7 @@ export default function About() {
         </nav>
       </header>
 
-      {/* Main About Section */}
+      {/* Desktop About Section */}
       <main className={styles.main}>
         
         <section className={styles.section}>
@@ -367,6 +367,197 @@ functionality and reliability.
             </div>
         </section>
 
+      </main>
+      
+      {/* Mobile About Section */}
+      <main className={styles.mobileMain}>
+        <section className={styles.mobileHero}>
+          <h1 className={styles.mobileHeading}>about me</h1>
+
+          <p className={styles.mobileIntro}>
+            hi, i&apos;m james — a{" "}
+            <span className={styles.orangeText}>computer engineering</span> student
+            focused on software, hardware, and creative technical systems.
+          </p>
+
+          <a
+            href="./JamesAliev_Resume.pdf"
+            download="James_Aliev_Resume.pdf"
+            className={styles.mobileButton}
+          >
+            download resume
+          </a>
+        </section>
+
+        <section className={styles.mobileSection}>
+          <h2 className={styles.mobileSectionTitle}>currently</h2>
+
+          <div className={styles.mobileCard}>
+            <Image
+              src="/Qualcomm-Logo.svg"
+              alt="Qualcomm Logo"
+              width={150}
+              height={50}
+              className={styles.company_image}
+            />
+
+            <h3 className={styles.mobileCardTitle}>Physical Design Engineer</h3>
+            <p className={styles.mobileCardDate}>01/26 – 09/26</p>
+            <p className={styles.mobileCardText}>
+              will be updated throughout the internship...
+            </p>
+          </div>
+        </section>
+
+        <section className={styles.mobileSection}>
+          <h2 className={styles.mobileSectionTitle}>experience</h2>
+
+          <div className={styles.mobileCard}>
+            <Image
+              src="/AlphawaveSEMI-Logo.png"
+              alt="Alphawave Semi Logo"
+              width={280}
+              height={40}
+              className={styles.company_image}
+            />
+
+            <h3 className={styles.mobileCardTitle}>Physical Design Engineer</h3>
+            <p className={styles.mobileCardDate}>05/25 – 12/25</p>
+            <p className={styles.mobileSkills}>
+              Python, Fusion Compiler, PrimeTime, LangChain, Streamlit, TCL, Bash, Perl
+            </p>
+            <p className={styles.mobileCardText}>
+              Automated and modernized physical design flows, built QoR analysis tools,
+              and developed internal applications for flow execution and data querying.
+            </p>
+          </div>
+
+          <div className={styles.mobileCard}>
+            <Image
+              src="/BMO-Logo.svg"
+              alt="BMO Logo"
+              width={110}
+              height={45}
+              className={styles.company_image}
+            />
+
+            <h3 className={styles.mobileCardTitle}>Junior Software Developer</h3>
+            <p className={styles.mobileCardDate}>05/24 – 09/24</p>
+            <p className={styles.mobileSkills}>
+              Angular, TypeScript, Python, AWS, Kafka, Node.js
+            </p>
+            <p className={styles.mobileCardText}>
+              Built an internal self-serve platform for managing Kafka topics, access
+              controls, and data schemas while supporting backend integrations.
+            </p>
+          </div>
+
+          <div className={styles.mobileCard}>
+            <Image
+              src="/ExpertGeophysics-Logo.png"
+              alt="Expert Geophysics Limited Logo"
+              width={170}
+              height={50}
+              className={styles.company_image}
+            />
+
+            <h3 className={styles.mobileCardTitle}>Engineering Intern</h3>
+            <p className={styles.mobileCardDate}>05/23 – 09/23</p>
+            <p className={styles.mobileSkills}>
+              C, 3D Printing, FreeCAD, Fusion 360, Soldering
+            </p>
+            <p className={styles.mobileCardText}>
+              Developed and tested monitoring-system software and supported hardware
+              testing, structural design, and component reliability work.
+            </p>
+          </div>
+        </section>
+
+        <section className={styles.mobileSection}>
+          <h2 className={styles.mobileSectionTitle}>awards</h2>
+
+          <div className={styles.mobileCard}>
+            <h3 className={styles.mobileCardTitle}>BMO InnoV8 Hackathon</h3>
+            <p className={styles.mobileCardDate}>1st Place · 06/24</p>
+            <p className={styles.mobileSkills}>Angular, Node.js, Figma</p>
+            <p className={styles.mobileCardText}>
+              Won 1st place among 30 teams with a fintech solution built during BMO&apos;s
+              internal hackathon.
+            </p>
+          </div>
+
+          <div className={styles.mobileCard}>
+            <h3 className={styles.mobileCardTitle}>AWS Certified Cloud Practitioner</h3>
+            <p className={styles.mobileCardDate}>Re-certified September 2024</p>
+            <p className={styles.mobileSkills}>EC2, S3, Lambda, IAM, VPC, RDS</p>
+          </div>
+        </section>
+
+        <section className={styles.mobileSection}>
+          <h2 className={styles.mobileSectionTitle}>technologies</h2>
+
+          <div className={styles.mobileTechList}>
+            <span>AWS</span>
+            <span>Angular</span>
+            <span>Angular Material</span>
+            <span>Apache Kafka</span>
+            <span>Bash</span>
+            <span>C</span>
+            <span>CentOS</span>
+            <span>Claude</span>
+            <span>CLion</span>
+            <span>CMake</span>
+            <span>Confluence</span>
+            <span>C++</span>
+            <span>CSS3</span>
+            <span>Docker</span>
+            <span>Drupal</span>
+            <span>Eclipse</span>
+            <span>Figma</span>
+            <span>Firefox</span>
+            <span>GCC</span>
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>GitLab</span>
+            <span>Google Cloud</span>
+            <span>HTML5</span>
+            <span>IntelliJ</span>
+            <span>Java</span>
+            <span>JavaScript</span>
+            <span>Jira</span>
+            <span>JSON</span>
+            <span>LaTeX</span>
+            <span>LangChain</span>
+            <span>Linux</span>
+            <span>MATLAB</span>
+            <span>Matplotlib</span>
+            <span>Next.js</span>
+            <span>Nginx</span>
+            <span>Node.js</span>
+            <span>npm</span>
+            <span>OpenGL</span>
+            <span>Pandas</span>
+            <span>Perl</span>
+            <span>PHP</span>
+            <span>Plotly</span>
+            <span>PuTTY</span>
+            <span>PyCharm</span>
+            <span>Python</span>
+            <span>PyTorch</span>
+            <span>Sass</span>
+            <span>Selenium</span>
+            <span>Solidity</span>
+            <span>SSH</span>
+            <span>Streamlit</span>
+            <span>Subversion / SVN</span>
+            <span>Symfony</span>
+            <span>TCL</span>
+            <span>TypeScript</span>
+            <span>VS Code</span>
+            <span>XML</span>
+            <span>YAML</span>
+          </div>
+        </section>
       </main>
 
       <footer className={styles.footer}>

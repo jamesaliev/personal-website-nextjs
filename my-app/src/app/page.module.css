@@ -113,3 +113,97 @@
   height: 100%;
   object-fit: cover; /* Adjust the Spline object to cover the screen */
 }
+
+.desktopMain {
+  display: block;
+  width: 100%;
+  height: 100vh;
+}
+
+.mobileMain {
+  display: none;
+}
+
+/* Mobile override */
+@media (max-width: 768px) {
+  .desktopMain {
+    display: none;
+  }
+
+  .mobileMain {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: #000;
+  }
+
+  .mobileHero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    max-width: 360px;
+  }
+
+  .mobileLogo {
+    /* filter: drop-shadow(0 0 18px rgba(243, 159, 90, 0.35)); */
+  }
+
+  .mobileTitle {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    letter-spacing: -0.04em;
+    font: 2.4rem 'JetBrains Mono', monospace;
+  }
+
+  .mobileSubtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    font: 1rem 'JetBrains Mono', monospace;
+  }
+
+  .mobileButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    font: 0.9rem 'JetBrains Mono', monospace;
+  }
+
+  .mobileButton,
+  .mobileButtonSecondary {
+    padding: 0.75rem 1.1rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .mobileButton {
+    background: transparent;
+    color: #f39f5a;
+    font-weight: 600;
+  }
+
+  .mobileButtonSecondary {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+  }
+
+  .mobileButton:hover,
+  .mobileButtonSecondary:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+  }
+}
+
+.uoft_blue {
+  color: #2e5db4;
+}

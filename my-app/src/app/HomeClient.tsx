@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
@@ -10,10 +11,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate content loading
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500); // Adjust the time as needed
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -26,21 +26,21 @@ export default function Home() {
         </div>
       )}
 
-      {/* Minimalist Header */}
       <header className={styles.header}>
         <nav className={styles.nav}>
           <div className={styles.logoContainer}>
-            <Link href="/" legacyBehavior>
+            <Link href="/">
               <Image
-                src={jamesAlievLogo} // Correct relative path to the logo
+                src={jamesAlievLogo}
                 alt="James Aliev Logo"
-                width={40} // Adjust size as needed
+                width={40}
                 height={40}
                 priority
                 className={styles.logo}
               />
             </Link>
           </div>
+
           <ul className={styles.navList}>
             <li className={styles.navItem}>
               <a href="about" className={styles.navLink}>
@@ -61,11 +61,41 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* Main content with Spline */}
-      <main className={styles.main}>
-        <Spline
-          scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode"
-        />
+      {/* Desktop Main */}
+      <main className={styles.desktopMain}>
+        <Spline scene="https://prod.spline.design/il7DkrIACC-hw4e3/scene.splinecode" />
+      </main>
+
+      {/* Mobile Main */}
+      <main className={styles.mobileMain}>
+        <section className={styles.mobileHero}>
+          <Image
+            src={jamesAlievLogo}
+            alt="James Aliev Logo"
+            width={180}
+            height={180}
+            priority
+            className={styles.mobileLogo}
+          />
+
+          <p className={styles.mobileSubtitle}>
+            computer engineering @ <span className={styles.uoft_blue}>UofT</span>
+          </p>
+
+          <div className={styles.mobileButtons}>
+            <a href="about" className={styles.mobileButton}>
+              about me
+            </a>
+
+            <a href="projects" className={styles.mobileButton}>
+              projects
+            </a>
+
+            <a href="contact" className={styles.mobileButton}>
+              contact
+            </a>
+          </div>
+        </section>
       </main>
     </div>
   );

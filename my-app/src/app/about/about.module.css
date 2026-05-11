@@ -368,3 +368,170 @@
     transform: rotate(360deg);
   }
 }
+
+.mobileMain {
+  display: none;
+}
+
+/* Mobile About Override */
+@media (max-width: 768px) {
+  .page {
+    min-height: 100vh;
+    height: auto;
+    background: #000;
+  }
+
+  .main {
+    display: none;
+  }
+
+  .mobileMain {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 7rem 1.25rem 3rem;
+    background: #000;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .scrollIndicatorContainer {
+    display: none;
+  }
+
+  .header {
+    background-color: #000;
+    box-shadow: none;
+  }
+
+  .nav {
+    padding: 0 0.25rem;
+  }
+
+  .navList {
+    gap: 1rem;
+  }
+
+  .navLink {
+    font-size: 0.78rem;
+  }
+
+  .mobileHero {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 4rem;
+  }
+
+  .mobileHeading {
+    font-size: clamp(2.8rem, 14vw, 4.8rem);
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+    color: #ffb157;
+    margin: 0;
+    text-transform: lowercase;
+    border-left: 6px solid #775c87;
+    padding-left: 1rem;
+  }
+
+  .mobileIntro {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0;
+  }
+
+  .mobileButton {
+    width: fit-content;
+    text-decoration: none;
+    color: #000;
+    background: #ffb157;
+    border: 2px solid #ffb157;
+    border-radius: 0;
+    padding: 0.85rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 5px 5px 0 #775c87;
+    text-transform: lowercase;
+  }
+
+  .mobileSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+    border-top: 2px solid #ffb157;
+    padding-top: 1.5rem;
+  }
+
+  .mobileSectionTitle {
+    font-size: 1.65rem;
+    color: #ffb157;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.04em;
+  }
+
+  .mobileCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.15rem;
+    border: 2px solid #775c87;
+    border-radius: 0;
+    background: #000;
+    box-shadow: 6px 6px 0 #24142f;
+  }
+
+  .mobileCardTitle {
+    font-size: 1.05rem;
+    color: #ffa600;
+    margin: 0;
+  }
+
+  .mobileCardDate {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+  }
+
+  .mobileSkills {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #9f7aae;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .mobileCardText {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0;
+  }
+
+  .mobileTechList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .mobileTechList span {
+    border: 1px solid #775c87;
+    border-radius: 0;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    background: #000;
+    box-shadow: 3px 3px 0 #24142f;
+  }
+
+  .footer {
+    background: #000;
+    padding-top: 2rem;
+  }
+
+  .footerLinks {
+    gap: 1rem;
+  }
+}
